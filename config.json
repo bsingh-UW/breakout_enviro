@@ -6,7 +6,19 @@
 
     "buttons": [],
 
-    "agents": [    
+    "agents": [
+        {
+            "definition": "defs/player.json",
+            "style": {
+                "fill": "lightblue",
+                "stroke": "black"
+            },
+            "position": {
+                "x": 0,
+                "y": 135,
+                "theta": 0
+            }
+        }
     ],
 
     "statics": [

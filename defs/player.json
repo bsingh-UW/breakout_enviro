@@ -1,0 +1,32 @@
+{
+    "name": "Player",
+    "type": "dynamic",
+    "description": "Player paddle for breakout",
+    "shape": [
+        {
+            "x": -10,
+            "y": 15
+        },
+        {
+            "x": 10,
+            "y": 15
+        },
+        {
+            "x": 10,
+            "y": -15
+        },
+        {
+            "x": -10,
+            "y": -15
+        }
+    ],
+    "friction": {
+        "collision": 0,
+        "linear": 30,
+        "rotational": 0
+    },
+    "sensors": [
+    ],
+    "mass": 1,
+    "controller": "lib/player.so"
+}
