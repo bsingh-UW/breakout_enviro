@@ -1,0 +1,40 @@
+{
+    "name": "Ball",
+    "type": "dynamic",
+    "description": "The ball?",
+    "shape": "omni",
+    "radius": 3,
+    "friction": {
+        "collision": 0,
+        "linear": 0,
+        "rotational": 0
+    },
+    "sensors": [
+        {
+            "type": "range",
+            "location": {
+                "x": 0,
+                "y": 0
+            },
+            "direction": 0
+        },
+        {
+            "type": "range",
+            "location": {
+                "x": 0,
+                "y": 0
+            },
+            "direction": 0.261799
+        },
+        {
+            "type": "range",
+            "location": {
+                "x": 0,
+                "y": 0
+            },
+            "direction": -0.261799
+        }
+    ],
+    "mass": 1,
+    "controller": "lib/ball.so"
+}

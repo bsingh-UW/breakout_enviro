@@ -18,6 +18,20 @@
                 "y": 135,
                 "theta": 0
             }
+        },
+        {
+            "definition": "defs/ball.json",
+            "style": {
+                "fill": "red",
+                "stroke": "red",
+                "strokeWidth": "2px",
+                "strokeOpacity": "0.25"
+            },
+            "position": {
+                "x": 100,
+                "y": 100,
+                "theta": 0
+            }
         }
     ],
 
