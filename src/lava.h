@@ -24,7 +24,7 @@ public:
 
     void update()
     {
-        omni_apply_force(0, 500);
+        //omni_apply_force(0, 500);
     }
 
     void stop() {}
