@@ -1,0 +1,31 @@
+{
+    "name": "Block",
+    "type": "dynamic",
+    "description": "Destroyable blocks",
+    "shape": [
+        {
+            "x": -24,
+            "y": 5
+        },
+        {
+            "x": 24,
+            "y": 5
+        },
+        {
+            "x": 24,
+            "y": -5
+        },
+        {
+            "x": -24,
+            "y": -5
+        }
+    ],
+    "friction": {
+        "collision": 10000,
+        "linear": 10000,
+        "rotational": 0
+    },
+    "sensors": [],
+    "mass": 10000,
+    "controller": "lib/block.so"
+}

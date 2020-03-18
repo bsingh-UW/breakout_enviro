@@ -23,7 +23,6 @@ public:
 
         notice_collisions_with("Lava", [&](Event &e) {
             int other_robot_id = e.value()["id"];
-            Agent &other_robot = find_agent(other_robot_id);
             std::cout << other_robot_id << std::endl;
             
             if (other_robot_id == 2)
@@ -37,14 +36,19 @@ public:
 
         notice_collisions_with("Wall", [&](Event &e) {
             int other_robot_id = e.value()["id"];
-            Agent &other_robot = find_agent(other_robot_id);
             collision();
         });
 
         notice_collisions_with("Player", [&](Event &e) {
             int other_robot_id = e.value()["id"];
+            collision();
+        });
+
+        notice_collisions_with("Block", [&](Event &e) {
+            int other_robot_id = e.value()["id"];
             Agent &other_robot = find_agent(other_robot_id);
             collision();
+            remove_agent(other_robot_id);
         });
     }
 
@@ -52,27 +56,6 @@ public:
 
     void update()
     {
-
-        // if (sensor_value(0) < front_sens_mag || sensor_value(1) < front_sens_mag * 0.965 || sensor_value(2) < front_sens_mag * 0.965)
-        // {
-        //     impact = true;
-        //     double active_side;
-        //     double mid = sensor_value(0);
-        //     bounce_angle = 0;
-
-
-        //     if(sensor_value(1) < sensor_value(2))
-        //     {
-        //         active_side = sensor_value(1);
-        //         bounce_angle = -get_col_angle(mid, active_side);
-        //     } 
-        //     else 
-        //     {
-        //         active_side = sensor_value(2);
-        //         bounce_angle = get_col_angle(mid, active_side);
-        //     }
-
-        // }
 
         if (impact){
             teleport(x(), y(), angle()+bounce_angle *2);
