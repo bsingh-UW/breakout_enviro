@@ -28,9 +28,9 @@
                 "strokeOpacity": "0.25"
             },
             "position": {
-                "x": 100,
+                "x": 50,
                 "y": 100,
-                "theta": 0
+                "theta": 45
             }
         }
     ],
