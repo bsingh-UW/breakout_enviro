@@ -1,0 +1,32 @@
+{
+    "name": "Lava",
+    "type": "dynamic",
+    "description": "Kill Wall for ball",
+    "shape": [
+        {
+            "x": -338,
+            "y": 1
+        },
+        {
+            "x": 338,
+            "y": 1
+        },
+        {
+            "x": 338,
+            "y": -1
+        },
+        {
+            "x": -338,
+            "y": -1
+        }
+    ],
+    "friction": {
+        "collision": 1000,
+        "linear": 1000,
+        "rotational":1000
+    },
+    "sensors": [
+    ],
+    "mass": 1000,
+    "controller": "lib/lava.so"
+}

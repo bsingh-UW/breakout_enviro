@@ -19,12 +19,20 @@ public:
 
     void init() {
 
-        teleport(x(), y(), angle() + PI/4);
-        // if (sensor_value(0) < 5)
-        // {
-        //     // std::cout << "why not" << std::endl;
-        //     // vx = -vx;
-        // }
+        teleport(50, 50, angle() + PI/4);
+
+        notice_collisions_with("Lava", [&](Event &e) {
+            int other_robot_id = e.value()["id"];
+            Agent &other_robot = find_agent(other_robot_id);
+            std::cout << other_robot_id << std::endl;
+            
+            if (other_robot_id == 2)
+            {
+                init();
+            }
+        });
+
+        
     }
 
     void start() {}
@@ -43,7 +51,6 @@ public:
             if(sensor_value(1) < sensor_value(2))
             {
                 active_side = sensor_value(1);
-                std::cout << "SENSOR 1" << angle() << std::endl;
                 bounce_angle = -get_col_angle(mid, active_side);
             } 
             else 
@@ -55,22 +62,12 @@ public:
         }
 
         if (impact){
-            std::cout << "yes?" << std::endl;
             teleport(x(), y(), angle()+bounce_angle *2);
             impact = false;
         }
 
-        
-
         track_velocity( 5,  0);
-        
 
-        //std::cout << sensor_value(0) << std::endl;
-        //std::cout << "Angle : " << angle() << std::endl;
-        //omni_apply_force(fx, 0);
-
-
-        
     }
 
     double get_col_angle(const double &c_vec, const double &s_vec)
@@ -89,9 +86,7 @@ public:
         double alpha, beta, c;
 
         c = sqrt(pow(c_vec, 2) + pow(s_vec, 2) - 2 * c_vec * s_vec * cos(gamma));
-
         alpha = acos((pow(s_vec, 2) + pow(c, 2) - pow(c_vec, 2)) / (2 * s_vec * c));
-
         beta = PI - alpha - gamma;
 
         return beta;
@@ -102,7 +97,6 @@ public:
     double front_sens_mag = 7;
     bool impact = false;
     double bounce_angle;
-    //const int fmax = 100.0;
 };
 
 class Ball : public Agent
