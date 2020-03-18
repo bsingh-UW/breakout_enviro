@@ -1,0 +1,31 @@
+{
+    "name": "Wall",
+    "type": "dynamic",
+    "description": "Wall for collision detection",
+    "shape": [
+        {
+            "x": -1,
+            "y": 188
+        },
+        {
+            "x": 1,
+            "y": 188
+        },
+        {
+            "x": 1,
+            "y": -188
+        },
+        {
+            "x": -1,
+            "y": -188
+        }
+    ],
+    "friction": {
+        "collision": 1000,
+        "linear": 1000,
+        "rotational": 1000
+    },
+    "sensors": [],
+    "mass": 1000,
+    "controller": "lib/wall.so"
+}

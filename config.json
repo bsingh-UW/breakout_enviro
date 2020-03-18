@@ -43,7 +43,49 @@
             },
             "position": {
                 "x": 0,
-                "y": 188,
+                "y": 190,
+                "theta": 0
+            }
+        },
+        {
+            "definition": "defs/lava.json",
+            "style": {
+                "fill": "black",
+                "stroke": "black",
+                "strokeWidth": "2px",
+                "strokeOpacity": "0.25"
+            },
+            "position": {
+                "x": 0,
+                "y": -190,
+                "theta": 0
+            }
+        },
+        {
+            "definition": "defs/wall.json",
+            "style": {
+                "fill": "black",
+                "stroke": "black",
+                "strokeWidth": "2px",
+                "strokeOpacity": "0.25"
+            },
+            "position": {
+                "x": 340,
+                "y": 0,
+                "theta": 0
+            }
+        },
+        {
+            "definition": "defs/wall.json",
+            "style": {
+                "fill": "black",
+                "stroke": "black",
+                "strokeWidth": "2px",
+                "strokeOpacity": "0.25"
+            },
+            "position": {
+                "x": -340,
+                "y": 0,
                 "theta": 0
             }
         }
