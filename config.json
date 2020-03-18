@@ -1,6 +1,6 @@
 {
 
-    "name": "My Enviro Project",
+    "name": "BREAKOUT! | Use Left & Right Arrow Keys to control paddle",
     "ip": "0.0.0.0",
     "port": 8765,
 

@@ -27,6 +27,8 @@ public:
             
             if (other_robot_id == 2)
             {
+                //emit(Event("hit", {"points", -100}));
+                hit_minus = true;
                 init();
             }
             else{
@@ -49,13 +51,29 @@ public:
             Agent &other_robot = find_agent(other_robot_id);
             collision();
             remove_agent(other_robot_id);
+
+            hit_plus = true;
         });
     }
 
     void start() {}
 
     void update()
-    {
+    {   
+        if(hit_minus){
+            emit(Event("hit_minus", {"points", -100}));
+            std::cout << "sent1" << std::endl;
+
+            hit_minus = false;
+        }
+
+        if (hit_plus)
+        {
+            emit(Event("hit_plus", {"points", 10}));
+            std::cout << "sent2" << std::endl;
+
+            hit_plus = false;
+        }
 
         if (impact){
             teleport(x(), y(), angle()+bounce_angle *2);
@@ -114,6 +132,8 @@ public:
     double front_sens_mag = 7;
     bool impact = false;
     double bounce_angle;
+    bool hit_plus = false;
+    bool hit_minus = false;
 };
 
 class Ball : public Agent
