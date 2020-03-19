@@ -16,13 +16,13 @@ public:
 
     void init()
     {
+        // The only specific thing about this object. So it doesnt fall down. 
         prevent_rotation();
     }
     void start() {}
 
     void update()
     {
-        //omni_apply_force(0, 500);
     }
 
     void stop() {}

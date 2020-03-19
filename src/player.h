@@ -19,6 +19,12 @@ public:
 
     void init()
     {
+        /*  
+            Movement for the player block. Straight forward, uses arrow keys. 
+
+            A stop flag is created so the player stops moving once the key stops
+            being pressed, causes a damp_movement() to be called. 
+        */
         prevent_rotation();
         watch("keydown", [&](Event &e) {
             std::string k = e.value()["key"];
@@ -51,9 +57,19 @@ public:
     }
     void start() {}
 
+
+
+
+
     void update()
     {
         double fx;
+
+        /*  
+            Movement functions for the block. Uses same physics from 
+            the platformer, other than the damp_movement().
+            
+        */
 
         if (RIGHT)
         {
@@ -61,7 +77,6 @@ public:
             fx = 0;
             fx = -K_X * (velocity().x - vx);
             omni_apply_force(fx, G);
-            //std::cout << "RIGHT" << std::endl;
         }
         if (LEFT)
         {
@@ -69,11 +84,17 @@ public:
             fx = 0;
             fx = -K_X * (velocity().x - vx);
             omni_apply_force(fx, G);
-            //std::cout << "LEFT" << std::endl;
         }
         if(STOP){
             damp_movement();
         }
+
+        /*  
+            These methods are for keeping score. Since the display is attached to the player
+            , I added event watchers. I set the watches to flip flags, since the scores are 
+            fixed. Also I was having issues with json. 
+            
+        */
 
         watch("hit_minus", [this](Event e) {
             hit_minus = true;
@@ -82,6 +103,13 @@ public:
         watch("hit_plus", [this](Event e) {
             hit_plus = true;
         });
+
+
+
+        /*  
+            Adds or subtracs points based off of emit events. Booleans used because
+            the watch method would trigger multiple times before reaching the display. 
+        */
 
         if(hit_minus){
             score = score - 50;
@@ -92,7 +120,11 @@ public:
             score = score + 10;
             hit_plus = false;
         }
-        
+
+        /*  
+            Adds casted score to the display string and gets displayed by label.  
+        */
+
         display = "Score : " + std::to_string((int)score);
         label(display, -10, 50);
     }
